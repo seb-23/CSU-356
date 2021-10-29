@@ -1,0 +1,39 @@
+136intro-3.jpg   
+This image contains the words "IT Came from Outer Spce"
+Also has "Fantastic Sights Leap At You! in 3-Dimension"
+Also has 4 adults looking up at a big eye.
+
+asdf136Intro-5kqlw.jpeg
+This image is has the words "An epic drama of adventure and exploration"
+"2001 a space odyssey"
+The image contains a small portion of earth and a satellite next to it.
+
+Bueller-Roto3-NoIntro-300x120._V337018340_.jpg
+This image is a Amazon advertisement for some product.
+It says: "amazon fireTV"  "only $99"
+
+wuer136intro-4.JPG
+This image seems like its a Movie Advertisment for "The Fly"
+It says "Once it was human even as you and I! She had to kill
+thing her husband had become but could she? The Fly"
+hahahahahaha the image has a big fly approaching a woman 
+screaming.
+
+xbzf136INTRO-1.jpg
+This image is titled the "Forbidden Planet." It contains a ufo on a 
+strange looking planet with sharp cliffy sculptures and a different
+planet in the distance.
+
+
+1 sentence: What goes in the /var directory on a UNIX computer?
+	What goes in the /var directory are files which the
+	system writes data to while running its course, also cache
+	files and database files could be stored here.
+
+1 sentence: What is the /dev directory for on a UNIX computer?
+	/dev directory stores special device files for most if not 
+	all devices, these device files are created during installation
+	and this is basically all it contains.
+
+vendor_id: GenuineIntel
+

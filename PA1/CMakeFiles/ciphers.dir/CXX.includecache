@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/s/parsons/n/under/sebby23/cs356/PA1/Ciphers.cc
+iostream
+-
+string.h
+-
+string
+-
+vector
+-
+iomanip
+-
+fstream
+-
+bitset
+-
+

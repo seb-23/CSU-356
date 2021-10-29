@@ -1,0 +1,45 @@
+1 Page Memo
+The FCCU application has a major vulnerability making it subject to an SQL injection, rendering 
+the username and passcode encryption meaningless.  The problem with the source code in the file is 
+that it does not do a complete inspection of input validation.  The programmer did apply some corner 
+cases here and there but ultimately did not get the job done.  The proper way to test for a variety 
+of input vulnerabilities is through a testing strategy known as “Input Fuzzing.”  Input fuzzing is a 
+software testing technique which uses randomly produced data as inputs to a program. The input range 
+is usually huge that includes a text or graphic input to a program, random values passed to a system 
+library or function for random Web server network requests.  The motives are to provide a verdict as 
+to whether or not the program can operate the input correctly or incorrectly (failure).  This software 
+testing strategy must be applied to every single file that interacts with a database.  Security measures 
+must be improved.  Although, input fuzzing wasn’t necessary to expose this major programming flaw.  What 
+exposed the database and our employees user credentials is the fact that the code used wildcards that stored 
+user input from the login screen, and never bothered to check the wildcard for SQL’s characters that have a 
+special meaning.  Special characters include %,_,’, and others.  That means that the hacker or anybody could 
+manipulate the string of characters to conclude one statement and continue on with a custom made 
+statement.  All the hacker has to do is understand how the SQL query is written and where and what 
+special characters are present to determine if the system can be compromised.   Here is the search 
+query that every login success and attempt must be put through: 
+$query = "SELECT * FROM accounts WHERE id = $id AND password = '$password'";
+On the front end of the website, id represents “Account ID Number:” and password represents 
+“Password (alphanumeric only):.”  So because there are no statements that take into account special 
+exit characters, the attacker doesn’t even need to know a single user ID number or password to compromise
+ an employees account.  In “Account ID Number” all the attacker has to provide as input is:   1 OR 1=1  and 
+the current database's entry ID will be passed through as true because OR 1=1 is a tautology.  For Password 
+(alphanumeric only): it is basically the same input except with strings: ' OR '1'='1.  There you have it.  Two 
+statements with a combined total that doesn’t even reach 20 bytes have broken the system. With such a strong encryption
+ scheme applied to our sensitive data and it doesn’t even get a chance to show its talent? So disappointing.  Until now,
+ here’s a solution.  All provided user input must be filtered through a function that takes into account are special SQL
+ characters and drops the input if the blacklisted values do not meet the criteria.  Like aforementioned special characters
+ include %,_,’ where any instance of ‘ must be finished off with an ‘, there cannot be an odd number of single quotes ( ‘ ).
+ MySQL already has a function for that so it is a quick easy fix.  Here is the code for that solution:
+$query = sprintf("SELECT * FROM accounts WHERE id=‘%i’ AND password='%s'",
+                  $mysqli->real_escape_string($id),
+                  $mysqli->real_escape_string($password));
+This would render the password value:  ' OR '1'='1  as powerless because it has an odd number of single quotes,
+ allowing the system to correctly read the user provided input and comprehend what’s really going on and drop it.  
+The breach was very serious because it exposes every single one of our employees credentials and their entire balance 
+can be shipped off without a single dispute. Now that is called negligence and this breach is extremely serious.  Attacker’s
+ could not get root access, because the special administrative interface runs on a different system that is not network accessible.  
+In order to provide more security for the server, firewalls must be implemented, source code needs to be tested properly
+ with techniques like input fuzzing and service auditing needs to be ubiquitous across the entire system.  As I conclude 
+this memo I just want to say this.  The negligence of our programming team has exposed us to potentially irreversible costs 
+that could render our services obsolete.  We can still get annihilated, let’s fix our cyber-security issues NOW! 
+
